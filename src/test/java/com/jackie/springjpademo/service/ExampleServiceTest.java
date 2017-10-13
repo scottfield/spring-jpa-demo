@@ -17,7 +17,11 @@ public class ExampleServiceTest {
 
     @Test
     public void find() throws Exception {
-        List<OpenPoState> list = exampleService.find(null);
+        OpenPoState criteria = new OpenPoState();
+        criteria.setCustNo(554401);
+        criteria.setState("this");
+        criteria.setActive("y");
+        List<OpenPoState> list = exampleService.find(criteria);
         System.out.println(list);
     }
 

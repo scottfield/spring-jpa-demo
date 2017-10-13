@@ -3,6 +3,7 @@ package com.jackie.springjpademo.service;
 import com.jackie.springjpademo.entity.OpenPoState;
 import com.jackie.springjpademo.repository.ExampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,6 @@ public class ExampleServiceImpl implements ExampleService {
 
     @Override
     public List<OpenPoState> find(OpenPoState criteria) {
-        return exampleRepository.findAll();
+        return exampleRepository.findAll(Example.of(criteria, ExampleRepository.MATCHER));
     }
 }

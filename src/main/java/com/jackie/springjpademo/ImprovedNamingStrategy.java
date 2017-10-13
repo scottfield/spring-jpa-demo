@@ -1,9 +1,9 @@
 package com.jackie.springjpademo;
 
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.PhysicalNamingStrategy;
 import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
-import org.springframework.util.StringUtils;
 
 /**
  * Created by rodz on 6/21/2017.
@@ -35,7 +35,7 @@ public class ImprovedNamingStrategy implements PhysicalNamingStrategy {
     }
 
     private Identifier convert(Identifier identifier) {
-        if (identifier == null || StringUtils.isEmpty(identifier.getText())) {
+        if(identifier == null || StringUtils.isBlank(identifier.getText())){
             return identifier;
         }
 
